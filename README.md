@@ -1,118 +1,91 @@
 # Loan_Approval_Prediction
-Loan approval prediction is done based on the attributes given
+This is Loan approval prediction project  is done based on the attributes given
 
-# 1. Introduction 👋
+A machine learning classification project that predicts whether a loan application should be approved or not based on applicant details such as ApplicantIncome, Education, LoanAmount, etc.
 
-<center><img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80" alt="Loan Picture" width="600" height="600"></center><br>
-
-## Data Set Problems 🤔
-
-👉 The company seeks **to automate (in real time) the loan qualifying procedure** based on information given by customers while filling out an online application form. It is expected that the development of ML models that can help the company predict loan approval in **accelerating decision-making process** for determining whether an applicant is eligible for a loan or not.
+The company seeks **to automate (in real time) the loan qualifying procedure** based on information given by customers while filling out an online application form. It is expected that the development of ML models that can help the company predict loan approval in **accelerating decision-making process** for determining whether an applicant is eligible for a loan or not.
 
 ---
 
-## Objectives of Notebook 📌
-👉 **This notebook aims to:**
-*   Analyze customer data provided in data set (EDA)
-*   Build various ML models that can predict loan approval
+# Project Goals
 
-👨‍💻 **The machine learning models used in this project are:**
-1. Logistic Regression
-2. K-Nearest Neighbour (KNN)
-3. Support Vector Machine (SVM)
-4. Naive Bayes
-5. Decision Tree
-6. Random Forest
-7. Gradient Boost
+- Clean and preprocess real-world loan data
+- Handle missing values and categorical variables
+- Perform EDA (Exploratory Data Analysis)
+- Remove outliers using IQR method
+- Apply feature scaling (MinMaxScaler)
+- Train multiple ML models (KNN, Random Forest, Gradient Boosting, etc.)
+- Tune hyperparameters to improve accuracy
+- Select the best-performing model
+- Evaluate using classification metrics
 
 ---
 
-## Data Set Description 🧾
-👉 There are **13 variables** in this data set:
-*   **8 categorical** variables,
-*   **4 continuous** variables, and
-*   **1** variable to accommodate the loan ID.
+# Data Discription
 
-<br>
+| Feature               | Description                |
+| --------------------- | -------------------------- |
+| **Gender**            | Male / Female              |
+| **Married**           | Yes / No                   |
+| **Dependents**        | Number of dependents       |
+| **Education**         | Graduate / Not Graduate    |
+| **Self_Employed**     | Applicant employment type  |
+| **ApplicantIncome**   | Primary income             |
+| **CoapplicantIncome** | Secondary income           |
+| **LoanAmount**        | Loan amount (in thousands) |
+| **Loan_Amount_Term**  | Duration of loan           |
+| **Credit_History**    | Past credit record         |
+| **Property_Area**     | Urban / Rural / Semiurban  |
+| **Loan_Status**       | Target variable (Y/N)      |
 
-👉 The following is the **structure of the data set**.
+# EDA & Preprocessing Steps
+Performed EDA including:
+- Distribution plots
+- Boxplots for outliers
+- Correlation heatmap
+- Loan approval trends by gender, education, property area, etc.
 
+Pre-processing :
+- Handle missing values
+- Converting Categorical features to numerical
+- Outlier Removal
+- Feature Scaling
 
-<table style="width:100%">
-<thead>
-<tr>
-<th style="text-align:center; font-weight: bold; font-size:14px">Variable Name</th>
-<th style="text-align:center; font-weight: bold; font-size:14px">Description</th>
-<th style="text-align:center; font-weight: bold; font-size:14px">Sample Data</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>Loan_ID</b></td>
-<td>Loan reference number <br> (unique ID)</td>
-<td>LP001002; LP001003; ...</td>
-</tr>
-<tr>
-<td><b>Gender</b></td>
-<td>Applicant gender <br> (Male or Female)</td>
-<td>Male; Female</td>
-</tr>
-<tr>
-<td><b>Married</b></td>
-<td>Applicant marital status <br> (Married or not married)</td>
-<td>Married; Not Married</td>
-</tr>
-<tr>
-<td><b>Dependents</b></td>
-<td>Number of family members</td>
-<td>0; 1; 2; 3+</td>
-</tr>
-<tr>
-<td><b>Education</b></td>
-<td>Applicant education/qualification <br> (graduate or not graduate)</td>
-<td>Graduate; Under Graduate</td>
-</tr>
-<tr>
-<td><b>Self_Employed</b></td>
-<td>Applicant employment status <br> (yes for self-employed, no for employed/others)</td>
-<td>Yes; No</td>
-</tr>
-<tr>
-<td><b>ApplicantIncome</b></td>
-<td>Applicant's monthly salary/income</td>
-<td>5849; 4583; ...</td>
-</tr>
-<tr>
-<td><b>CoapplicantIncome</b></td>
-<td>Additional applicant's monthly salary/income</td>
-<td>1508; 2358; ...</td>
-</tr>
-<tr>
-<td><b>LoanAmount</b></td>
-<td>Loan amount</td>
-<td>128; 66; ...</td>
-</tr>
-<tr>
-<td><b>Loan_Amount_Term</b></td>
-<td>The loan's repayment period (in days)</td>
-<td>360; 120; ...</td>
-</tr>
-<tr>
-<td><b>Credit_History</b></td>
-<td>Records of previous credit history <br> (0: bad credit history, 1: good credit history)</td>
-<td>0; 1</td>
-</tr>
-<tr>
-<td><b>Property_Area</b></td>
-<td>The location of property <br> (Rural/Semiurban/Urban)</td>
-<td>Rural; Semiurban; Urban</td>
-</tr>
-<tr>
-<td><b>Loan_Status</b></td>
-<td>Status of loan <br> (Y: accepted, N: not accepted)</td>
-<td>Y; N</td>
-</tr>
-</tbody>
-</table>
+# Models Implemented
+Logistic Regression, KN Neighbors, SVM,
+Categorical NB, Gaussian NB, Decision Tree, Random Forest
 
----
+Model evaluation on Accuracy Score, Confusion Matrix, Precision, Recall and F1 Score
+
+| Model                 | Accuracy (%) |
+|-----------------------|--------------|
+| KN Neighbors          | 80.536913    |
+| Random Forest         | 78.523490    |
+| Decision Tree         | 75.167785    |
+| Gaussian NB           | 72.483221    |
+| Categorical NB        | 71.140940    |
+| Logistic Regression   | 54.362416    |
+| SVM                   | 51.006711    |
+
+# Best Model 
+
+Best model as per accuracy is KNN algorithm. 
+
+Model performance parameters
+
+Best K Value: `1`  
+Best Accuracy: `80.54%`
+
+Classification Report
+
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| **False** | 0.80 | 0.85 | 0.82 | 78 |
+| **True**  | 0.82 | 0.76 | 0.79 | 71 |
+
+| Metric | Score |
+|--------|--------|
+| **Accuracy** | 0.81 |
+| **Macro Avg (F1)** | 0.80 |
+| **Weighted Avg (F1)** | 0.80 |
+
